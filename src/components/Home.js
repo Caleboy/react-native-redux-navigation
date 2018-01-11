@@ -2,14 +2,23 @@ import React, {Component} from 'react';
 import {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  NativeModules
 } from 'react-native';
 import Login from '../containers/LoginTodo';
+import FadeInView from './animateComponents/FadeButton';
+import PanResponder from './animateComponents/PanResponder';
+
+let ToastCustomAndroid = NativeModules.ToastCustomAndroid;
 
 export default class Home extends Component {
   componentDidMount() {
     const { getStore } = this.props;
     getStore()
+  }
+  CustomToast() {
+    console.log(ToastCustomAndroid.SHORT);
+    ToastCustomAndroid.show('Awesome', 0);
   }
   render() {
     const { items, logOut, navNews } = this.props;
@@ -51,6 +60,30 @@ export default class Home extends Component {
             </View>
           </TouchableOpacity>
         </View>
+        <View style={{marginTop: 20}}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => this.CustomToast()}
+          >
+            <View style={{
+              width: 240,
+              height: 30,
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: '#666',
+              alignItems: 'center'
+            }}>
+              <Text style={{color:'#666',fontSize: 20}}>Custom Toast</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* 动画 */}
+        <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue', marginTop: 20}}>
+          <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
+        </FadeInView>
+
+        <PanResponder/>
       </View>
     )
   }

@@ -54,7 +54,7 @@ export default class Login extends Component {
                   source={require('../images/loading.gif')}
                   style={styles.loadingImg}
                 />
-              </View>) : <View/>
+              </View>) : <Text></Text>
             }
           </View>
           <View style={styles.btn}>
@@ -111,7 +111,7 @@ export default class Login extends Component {
             </View>
           </View>
           <View style={styles.version}>
-            <Text>Version 0.0.2</Text>
+            <Text>Version 0.2</Text>
           </View>
         </ImageBackground>
       </View>

@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Load from './Load';
 import Home from '../containers/HomeTodo';
-import IosStatusBar from './IosStatusBar';
+import IosStatusBar from './iosCompatible/IosStatusBar';
 
 export default class AppRoot extends Component {
   componentDidMount() {

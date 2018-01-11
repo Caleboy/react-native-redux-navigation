@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {
   Platform,
-  View
+  View,
+  Text
 } from 'react-native';
 
 export const instructions = Platform.select({
   ios: <View style={{backgroundColor: 'rgba(0,0,0,0)',height: 18}}></View>,
-  android: '',
+  android: <Text style={{height: 0}}></Text>,
 });
 
 export default class IosStatusBar extends Component {
